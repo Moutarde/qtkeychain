@@ -132,7 +132,7 @@ public:
     void doStart();
     DeletePasswordJob* const q;
     QString key;
-private Q_SLOTS:
+public Q_SLOTS:
     void jobFinished( QKeychain::Job* );
 };
 
