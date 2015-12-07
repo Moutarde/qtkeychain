@@ -153,7 +153,7 @@ void DeletePasswordJob::doStart() {
     //Internally, to delete a password we just execute a write job with no data set (null byte array).
     //In all current implementations, this deletes the entry so this is sufficient
     WritePasswordJob* job = new WritePasswordJob( service(), this );
-    connect( job, SIGNAL(finished(QKeychain::Job*)), d, SLOT(jobFinished(QKeychain::Job*)) );
+    connect( job, &WritePasswordJob::finished, d, &DeletePasswordJobPrivate::jobFinished );
     job->setInsecureFallback(true);
     job->setSettings(settings());
     job->setKey( d->key );
