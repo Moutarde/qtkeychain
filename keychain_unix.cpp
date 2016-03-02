@@ -67,9 +67,9 @@ static DesktopEnvironment detectDesktopEnvironment() {
         return DesktopEnv_Xfce;
     }
 
-    if ( !qgetenv("GNOME_DESKTOP_SESSION_ID").isEmpty() ) {
+    if ( !qEnvironmentVariableIsEmpty("GNOME_DESKTOP_SESSION_ID") ) {
         return DesktopEnv_Gnome;
-    } else if ( !qgetenv("KDE_FULL_SESSION").isEmpty() ) {
+    } else if ( !qEnvironmentVariableIsEmpty("KDE_FULL_SESSION") ) {
         return getKdeVersion();
     }
 
