@@ -61,9 +61,9 @@ protected Q_SLOTS:
     virtual void kwalletFinished( QDBusPendingCallWatcher* watcher );
     virtual void kwalletOpenFinished( QDBusPendingCallWatcher* watcher );
 #else
-    void kwalletWalletFound(QDBusPendingCallWatcher *watcher) {}
-    virtual void kwalletFinished( QDBusPendingCallWatcher* watcher ) {}
-    virtual void kwalletOpenFinished( QDBusPendingCallWatcher* watcher ) {}
+    void kwalletWalletFound(QDBusPendingCallWatcher *watcher) { Q_UNUSED(watcher) }
+    virtual void kwalletFinished( QDBusPendingCallWatcher* watcher ) { Q_UNUSED(watcher) }
+    virtual void kwalletOpenFinished( QDBusPendingCallWatcher* watcher ) { Q_UNUSED(watcher) }
 #endif
 
 protected:
